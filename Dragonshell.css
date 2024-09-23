@@ -1,0 +1,194 @@
+/* Basic terminal-like styling */
+body {
+    background-color: #000000;
+    color: #00ff00;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#header {
+    background-color: #222;
+    padding: 10px;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.shortcut {
+    margin-right: 20px;
+    cursor: pointer;
+    color: #00ff00;
+    transition: color 0.3s;
+}
+
+.shortcut:hover {
+    color: #ff0;
+}
+
+/* Moves the "Switch to GUI" button to the right */
+.gui-shortcut {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+/* Adding icon for GUI switch button */
+.shortcut i {
+    margin-right: 5px;
+}
+
+#terminal {
+    background-color: #000;
+    border: 2px solid #ffffff;
+    flex-grow: 1;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.prompt {
+    color: #00ff00;
+    margin-right: 10px;
+}
+
+.input-line {
+    display: flex;
+}
+
+#input {
+    background: none;
+    border: none;
+    outline: none;
+    color: #00ff1e;
+    flex-grow: 1;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+#output {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Signal effect animation */
+.signal-effect {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #00ff00;
+    box-shadow: 0 0 10px #00ff00;
+    animation: pulse 2s infinite;
+}
+
+/* Pulse animation for signal waves */
+@keyframes pulse {
+    0% {
+        transform: scale(0.9);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Loader Section */
+#loading-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000; /* Slightly darker for a more polished look */
+    color: #00ff00; /* Consistent green for visibility */
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+.loading-container {
+    max-width: 600px; /* Constrain width for better layout */
+    padding: 20px; /* Add padding for breathing room */
+}
+
+.logo {
+    font-size: 5em; /* Larger size for better impact */
+    margin-bottom: 15px; /* Reduced space for a tighter look */
+    color: #00ff00; /* Ensure the logo remains green */
+}
+
+h1 {
+    font-size: 1.5em; /* Professional heading size */
+    margin: 10px 0; /* Less margin for a compact appearance */
+    letter-spacing: 1px; /* Slight spacing for elegance */
+}
+
+.loading-text {
+    font-size: 1.2em; /* Increased readability */
+    line-height: 1.5; /* Improved line spacing for clarity */
+}
+
+.loading-text .loading-word {
+    display: block; /* Each word on a new line */
+    opacity: 0;
+    animation: loading-fade 1s ease-in-out forwards;
+}
+
+.loading-word:nth-child(1) { animation-delay: 0s; }
+.loading-word:nth-child(2) { animation-delay: 1s; }
+.loading-word:nth-child(3) { animation-delay: 2s; }
+.loading-word:nth-child(4) { animation-delay: 3s; }
+.loading-word:nth-child(5) { animation-delay: 4s; }
+
+@keyframes loading-fade {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
+/* Exit Screen */
+#exit-screen {
+    display: none; /* Initially hidden */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000; /* Background color */
+    color: #00ff00; /* Text color */
+    font-family: 'Courier New', Courier, monospace; /* Font style */
+    text-align: center;
+    position: absolute; /* Positioned to cover the entire viewport */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.exit-container {
+    max-width: 600px; /* Limit width for better layout */
+    padding: 20px; /* Add padding for spacing */
+}
+
+.exit-logo {
+    font-size: 5em; /* Large logo for visibility */
+    margin-bottom: 15px; /* Space below logo */
+}
+
+.exit-message {
+    font-size: 1.5em; /* Font size for exit message */
+    margin: 10px 0; /* Margin for spacing */
+}
+
+/* Optional: Add animations for exit */
+@keyframes exit-fade {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}

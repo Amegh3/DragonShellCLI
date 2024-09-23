@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLI Portfolio</title>
+    <link rel="stylesheet" href="Dragonshell.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-container">
+            <div class="logo">
+                <i class="fas fa-dragon"></i>
+            </div>
+            <h1>Dragon Shell CLI Version: 1.0.0</h1>
+            <div class="loading-text">
+                <span class="loading-word">Initializing...</span>
+                <span class="loading-word">Loading Modules...</span>
+                <span class="loading-word">Booting Up Portfolio CLI...</span>
+                <span class="loading-word">Authenticating User...</span>
+                <span class="loading-word">Access Granted</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exit Screen -->
+    <div id="exit-screen" style="display: none;">
+        <div class="loading-container">
+            <div class="logo">
+                <i class="fas fa-dragon"></i>
+            </div>
+            <h1>Dragon Shell CLI Version: 1.0.0</h1>
+            <div class="loading-text">
+                <span>Exiting...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Terminal Content (hidden initially) -->
+    <div id="terminal-content" style="display: none;">
+        <div id="header">
+            <div id="shortcuts">
+                <div class="navbar">
+                    <!-- Shortcut buttons with commands -->
+                    <span class="shortcut" title="Show Password" data-command="show_password">Show sudo password</span>
+                    <span class="shortcut" title="Help" data-command="help">Help</span>
+                    <span class="shortcut" title="Clear Screen" data-command="clear">Clear</span>
+                    <span class="shortcut" title="List Sections" data-command="ls">LS</span>
+                    <span class="shortcut" title="Update System" data-command="update">Update</span>
+                    <span class="shortcut" title="About Terminal" data-command="about_terminal">About Terminal</span>
+                    <span class="shortcut gui-shortcut" title="Move to GUI" data-command="back_to_gui">
+                        <i class="fas fa-desktop"></i> Switch to GUI
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div id="output"></div>
+        <div class="input-line">
+            <span class="prompt" id="hostname">Dragonshell@portfolio:~$</span>
+            <input type="text" id="input" autofocus>
+        </div>
+    </div>
+
+    <!-- Embedded JavaScript -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const loadingDuration = 6000;
+
+            setTimeout(() => {
+                document.getElementById('loading-screen').style.display = 'none';
+                document.getElementById('terminal-content').style.display = 'block';
+            }, loadingDuration);
+        });
+
+        function switchToGUI() {
+            document.getElementById('exit-screen').style.display = 'flex';
+            document.getElementById('terminal-content').style.display = 'none';
+
+            setTimeout(() => {
+                window.location.href = 'index.html'; // Update this to your actual GUI URL
+            }, 4567765500000); // Adjust this duration as needed
+        }
+
+        document.querySelector('.gui-shortcut').addEventListener('click', switchToGUI);
+    </script>
+    <script src="Dragonshell.js"></script>
+</body>
+</html>
